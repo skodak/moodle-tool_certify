@@ -45,10 +45,12 @@ class benefithandler extends benefithandlerbase {
         return get_string('benefitname', 'tool_certify', format_string($certification->fullname));
     }
 
-    public function grantbenefit(int $userid, int $start, int $end, int $purchaseruserid, int $holdkey, array $params = []): void {
+    public function grantbenefit(int $userid, int $start, int $end, int $purchaseruserid, int $holdkey, array $params = [], $voucherredemptionid = null): bool {
         ecommerce::grantbenefit($this->instance, $userid, ['timewindowstart' => $start, 'timewindowend' => $end]);
 
         $this->releaseheldresources($holdkey, 1);
+
+        return true;
     }
 
     public function benefitcurrentlypossessed(int $userid, int $holdkeyid = null, array $params = []): bool {
@@ -57,7 +59,7 @@ class benefithandler extends benefithandlerbase {
         return $DB->record_exists('tool_certify_assignments', ['certificationid' => $this->instance, 'userid' => $userid]);
     }
 
-    public function getredirecturl(int $holdkeyid): array {
+    public function getredirecturl(int $holdkeyid, $voucherredemptionid = null): array {
         return [10, new \moodle_url('/admin/tool/certify/my/certification.php', ['id' => $this->instance])];
     }
 
