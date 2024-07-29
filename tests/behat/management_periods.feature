@@ -70,7 +70,7 @@ Feature: Certification periods settings management tests
       | recertify[enabled]    | 0                                     |
     And I set the following fields to these values:
       | Program               | Program 001                           |
-      | resettype1            | Privacy API reset (experimental)      |
+      | resettype1            | Privacy API reset                     |
       | due1[enabled]         | 1                                     |
       | due1[number]          | 3                                     |
       | due1[timeunit]        | weeks                                 |
@@ -88,7 +88,7 @@ Feature: Certification periods settings management tests
     And I should see "Window opening" in the "Valid from:" definition list item
     And I should see "2 months after Window opening" in the "Window closing:" definition list item
     And I should see "12 months after Certification completion date" in the "Expiration:" definition list item
-    And I should see "Privacy API reset (experimental)" in the "Certification program reset:" definition list item
+    And I should see "Privacy API reset" in the "Certification program reset:" definition list item
     And I should see "No" in the "Re-certify automatically:" definition list item
 
     When I click on "Update certification" "link"
@@ -98,12 +98,12 @@ Feature: Certification periods settings management tests
     And I should see "Window opening" in the "Valid from:" definition list item
     And I should see "2 months after Window opening" in the "Window closing:" definition list item
     And I should see "12 months after Certification completion date" in the "Expiration:" definition list item
-    And I should see "Privacy API reset (experimental)" in the "Certification program reset:" definition list item
+    And I should see "Privacy API reset" in the "Certification program reset:" definition list item
     And I should see "No" in the "Re-certify automatically:" definition list item
 
     When I click on "Update certification" "link"
     And the following fields match these values:
-      | resettype1            | Privacy API reset (experimental)      |
+      | resettype1            | Privacy API reset                     |
       | due1[enabled]         | 1                                     |
       | due1[number]          | 3                                     |
       | due1[timeunit]        | weeks                                 |
@@ -176,7 +176,7 @@ Feature: Certification periods settings management tests
       | expiration2[timeunit] | Months                                |
     And I set the following fields to these values:
       | Program               | Program 002                           |
-      | resettype2            | Privacy API reset (experimental)      |
+      | resettype2            | Privacy API reset                     |
       | grace2[enabled]       | 1                                     |
       | grace2[number]        | 6                                     |
       | grace2[timeunit]      | days                                  |
@@ -191,7 +191,7 @@ Feature: Certification periods settings management tests
     Then I should see "30 days before Expiration" in the "Re-certify automatically:" definition list item
     And I click on "Update re-certification" "link"
     And the following fields match these values:
-      | resettype2            | Privacy API reset (experimental)      |
+      | resettype2            | Privacy API reset                     |
       | grace2[enabled]       | 1                                     |
       | grace2[number]        | 6                                     |
       | grace2[timeunit]      | days                                  |
