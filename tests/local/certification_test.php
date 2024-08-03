@@ -16,6 +16,8 @@
 
 namespace tool_certify\local;
 
+use enrol_programs\local\course_reset;
+
 /**
  * Certification helper test.
  *
@@ -307,7 +309,7 @@ final class certification_test extends \advanced_testcase {
         $data = [
             'id' => (string)$certification->id,
             'programid1' => $program1->id,
-            'resettype1' => certification::RESETTYPE_PURGE,
+            'resettype1' => course_reset::RESETTYPE_FULL,
             'due1' => '9876',
             'valid1' => certification::SINCE_WINDOWDUE,
             'windowend1' => util::get_delay_form_value(['since' => certification::SINCE_WINDOWSTART, 'delay' => 'P7D'], 'days'),
@@ -350,7 +352,7 @@ final class certification_test extends \advanced_testcase {
             'id' => (string)$certification->id,
             'programid2' => $program2->id,
             'grace2' => '12345',
-            'resettype2' => certification::RESETTYPE_UNENROL,
+            'resettype2' => course_reset::RESETTYPE_STANDARD,
             'valid2' => certification::SINCE_CERTIFIED,
             'windowend2' => util::get_delay_form_value(['since' => certification::SINCE_WINDOWSTART, 'delay' => 'P7D'], 'days'),
             'expiration2' => util::get_delay_form_value(['since' => certification::SINCE_WINDOWSTART, 'delay' => 'P1Y'], 'days'),
@@ -630,10 +632,10 @@ final class certification_test extends \advanced_testcase {
     public function test_get_resettype_options() {
         $result = certification::get_resettype_options();
         $this->assertIsArray($result);
-        $this->assertArrayHasKey(certification::RESETTYPE_NONE, $result);
-        $this->assertArrayHasKey(certification::RESETTYPE_DEALLOCATE, $result);
-        $this->assertArrayHasKey(certification::RESETTYPE_UNENROL, $result);
-        $this->assertArrayHasKey(certification::RESETTYPE_PURGE, $result);
+        $this->assertArrayHasKey(course_reset::RESETTYPE_NONE, $result);
+        $this->assertArrayHasKey(course_reset::RESETTYPE_DEALLOCATE, $result);
+        $this->assertArrayHasKey(course_reset::RESETTYPE_STANDARD, $result);
+        $this->assertArrayHasKey(course_reset::RESETTYPE_FULL, $result);
         $this->assertCount(4, $result);
     }
 

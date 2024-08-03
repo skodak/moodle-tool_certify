@@ -57,20 +57,20 @@ Feature: Certification periods settings management tests
     And I should see "Certification completion date" in the "Valid from:" definition list item
     And I should see "Never" in the "Window closing:" definition list item
     And I should see "Never" in the "Expiration:" definition list item
-    And I should see "Forced de-allocation and unenrolments" in the "Certification program reset:" definition list item
+    And I should see "Standard course purge" in the "Certification program reset:" definition list item
     And I should see "No" in the "Re-certify automatically:" definition list item
 
     When I click on "Update certification" "link"
     And the following fields match these values:
       | due1[enabled]         | 0                                     |
-      | resettype1            | Forced de-allocation and unenrolments |
+      | resettype1            | Standard course purge                 |
       | valid1                | Certification completion date         |
       | windowend1[since]     | Never                                 |
       | expiration1[since]    | Never                                 |
       | recertify[enabled]    | 0                                     |
     And I set the following fields to these values:
       | Program               | Program 001                           |
-      | resettype1            | Privacy API reset                     |
+      | resettype1            | Full course purge                     |
       | due1[enabled]         | 1                                     |
       | due1[number]          | 3                                     |
       | due1[timeunit]        | weeks                                 |
@@ -88,7 +88,7 @@ Feature: Certification periods settings management tests
     And I should see "Window opening" in the "Valid from:" definition list item
     And I should see "2 months after Window opening" in the "Window closing:" definition list item
     And I should see "12 months after Certification completion date" in the "Expiration:" definition list item
-    And I should see "Privacy API reset" in the "Certification program reset:" definition list item
+    And I should see "Full course purge" in the "Certification program reset:" definition list item
     And I should see "No" in the "Re-certify automatically:" definition list item
 
     When I click on "Update certification" "link"
@@ -98,12 +98,12 @@ Feature: Certification periods settings management tests
     And I should see "Window opening" in the "Valid from:" definition list item
     And I should see "2 months after Window opening" in the "Window closing:" definition list item
     And I should see "12 months after Certification completion date" in the "Expiration:" definition list item
-    And I should see "Privacy API reset" in the "Certification program reset:" definition list item
+    And I should see "Full course purge" in the "Certification program reset:" definition list item
     And I should see "No" in the "Re-certify automatically:" definition list item
 
     When I click on "Update certification" "link"
     And the following fields match these values:
-      | resettype1            | Privacy API reset                     |
+      | resettype1            | Full course purge                     |
       | due1[enabled]         | 1                                     |
       | due1[number]          | 3                                     |
       | due1[timeunit]        | weeks                                 |
@@ -117,7 +117,7 @@ Feature: Certification periods settings management tests
       | recertify[enabled]    | 0                                     |
     And I set the following fields to these values:
       | Program               | Program 002                           |
-      | resettype1            | Forced de-allocation and unenrolments |
+      | resettype1            | Standard course purge                 |
       | due1[enabled]         | 0                                     |
       | valid1                | Certification completion date         |
       | windowend1[since]     | Never                                 |
@@ -129,7 +129,7 @@ Feature: Certification periods settings management tests
     And I should see "Certification completion date" in the "Valid from:" definition list item
     And I should see "Never" in the "Window closing:" definition list item
     And I should see "Never" in the "Expiration:" definition list item
-    And I should see "Forced de-allocation and unenrolments" in the "Certification program reset:" definition list item
+    And I should see "Standard course purge" in the "Certification program reset:" definition list item
     And I should see "No" in the "Re-certify automatically:" definition list item
 
   @javascript
@@ -148,13 +148,13 @@ Feature: Certification periods settings management tests
     And I should see "Certification completion date" in the "Valid from:" definition list item
     And I should see "Never" in the "Window closing:" definition list item
     And I should see "Never" in the "Expiration:" definition list item
-    And I should see "Forced de-allocation and unenrolments" in the "Certification program reset:" definition list item
+    And I should see "Standard course purge" in the "Certification program reset:" definition list item
     And I should see "No" in the "Re-certify automatically:" definition list item
 
     When I click on "Update certification" "link"
     And I set the following fields to these values:
       | Program               | Program 001                           |
-      | resettype1            | Forced de-allocation and unenrolments |
+      | resettype1            | Standard course purge                 |
       | due1[enabled]         | 0                                     |
       | valid1                | Certification completion date         |
       | windowend1[since]     | Never                                 |
@@ -167,7 +167,7 @@ Feature: Certification periods settings management tests
     And I press dialog form button "Update certification"
     And I click on "Update re-certification" "link"
     And the following fields match these values:
-      | resettype2            | Forced de-allocation and unenrolments |
+      | resettype2            | Standard course purge                 |
       | grace2[enabled]       | 0                                     |
       | valid2                | Certification due                     |
       | windowend2[since]     | Never                                 |
@@ -176,7 +176,7 @@ Feature: Certification periods settings management tests
       | expiration2[timeunit] | Months                                |
     And I set the following fields to these values:
       | Program               | Program 002                           |
-      | resettype2            | Privacy API reset                     |
+      | resettype2            | Full course purge                     |
       | grace2[enabled]       | 1                                     |
       | grace2[number]        | 6                                     |
       | grace2[timeunit]      | days                                  |
@@ -191,7 +191,7 @@ Feature: Certification periods settings management tests
     Then I should see "30 days before Expiration" in the "Re-certify automatically:" definition list item
     And I click on "Update re-certification" "link"
     And the following fields match these values:
-      | resettype2            | Privacy API reset                     |
+      | resettype2            | Full course purge                     |
       | grace2[enabled]       | 1                                     |
       | grace2[number]        | 6                                     |
       | grace2[timeunit]      | days                                  |
@@ -227,7 +227,7 @@ Feature: Certification periods settings management tests
     And I click on "Update certification" "link"
     And I set the following fields to these values:
       | Program               | Program 001                           |
-      | resettype1            | Forced de-allocation and unenrolments |
+      | resettype1            | Standard course purge                 |
       | due1[enabled]         | 0                                     |
       | valid1                | Certification completion date         |
       | windowend1[since]     | Never                                 |

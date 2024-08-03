@@ -18,6 +18,7 @@ namespace tool_certify\local;
 
 use tool_certify\local\source\manual;
 use enrol_programs\local\program;
+use enrol_programs\local\course_reset;
 use stdClass;
 
 /**
@@ -1290,11 +1291,11 @@ final class period_test extends \advanced_testcase {
         $certification1 = $generator->create_certification([
             'sources' => 'manual',
             'programid1' => $program1->id,
-            'periods_resettype1' => certification::RESETTYPE_UNENROL,
+            'periods_resettype1' => course_reset::RESETTYPE_STANDARD,
             'recertify' => DAYSECS,
             'programid2' => $program2->id,
             'periods_grace2' => DAYSECS * 14,
-            'periods_resettype2' => certification::RESETTYPE_PURGE,
+            'periods_resettype2' => course_reset::RESETTYPE_FULL,
             'periods_windowend2' => ['since' => certification::SINCE_WINDOWSTART, 'delay' => 'P11D'],
             'periods_valid2' => certification::SINCE_WINDOWDUE,
             'periods_expiration2' => ['since' => certification::SINCE_WINDOWDUE, 'delay' => 'P20D'],

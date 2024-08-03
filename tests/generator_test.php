@@ -138,7 +138,7 @@ final class generator_test extends \advanced_testcase {
             'recertify' => '1234',
             'programid1' => $program1->id,
             'program2' => $program2->idnumber,
-            'periods_resettype1' => certification::RESETTYPE_PURGE,
+            'periods_resettype1' => \enrol_programs\local\course_reset::RESETTYPE_FULL,
             'periods_due1' => '9876',
             'periods_windowend1' => ['since' => certification::SINCE_WINDOWSTART, 'delay' => 'P1M'],
         ];

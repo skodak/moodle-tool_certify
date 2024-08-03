@@ -17,6 +17,7 @@
 namespace tool_certify\local;
 
 use stdClass;
+use enrol_programs\local\course_reset;
 
 /**
  * Certification helper.
@@ -27,15 +28,6 @@ use stdClass;
  * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 final class certification {
-    /** @var int no program and course reset, repeated recertification will likely fail */
-    public const RESETTYPE_NONE = 0;
-    /** @var int forced program deallocation only */
-    public const RESETTYPE_DEALLOCATE = 1;
-    /** @var int program deallocation and forced course un-enrolment */
-    public const RESETTYPE_UNENROL = 2;
-    /** @var int unenrol plus experimental privacy API user purge */
-    public const RESETTYPE_PURGE = 3;
-
     /** @var string relative date disabling flag */
     public const SINCE_NEVER = 'never';
     /** @var string relative to certified date */
@@ -669,13 +661,13 @@ final class certification {
     public static function get_periods_defaults(): stdClass {
         // NOTE: we should probably add admin settings for defaults later...
         return (object)[
-            'resettype1' => self::RESETTYPE_UNENROL,
+            'resettype1' => course_reset::RESETTYPE_STANDARD,
             'due1' => null,
             'valid1' => self::SINCE_CERTIFIED,
             'windowend1' => ['since' => self::SINCE_NEVER, 'delay' => null],
             'expiration1' => ['since' => self::SINCE_NEVER, 'delay' => null],
             'grace2' => null,
-            'resettype2' => self::RESETTYPE_UNENROL,
+            'resettype2' => course_reset::RESETTYPE_STANDARD,
             'valid2' => self::SINCE_WINDOWDUE,
             'windowend2' => ['since' => self::SINCE_NEVER, 'delay' => null],
             'expiration2' => ['since' => self::SINCE_NEVER, 'delay' => null],
@@ -762,10 +754,10 @@ final class certification {
      */
     public static function get_resettype_options(): array {
         $result = [
-            self::RESETTYPE_NONE => new \lang_string('resettype_none', 'tool_certify'),
-            self::RESETTYPE_DEALLOCATE => new \lang_string('resettype_deallocate', 'tool_certify'),
-            self::RESETTYPE_UNENROL => new \lang_string('resettype_unenrol', 'tool_certify'),
-            self::RESETTYPE_PURGE => new \lang_string('resettype_purge', 'tool_certify'),
+            course_reset::RESETTYPE_NONE => new \lang_string('resettype_none', 'enrol_programs'),
+            course_reset::RESETTYPE_DEALLOCATE => new \lang_string('resettype_deallocate', 'enrol_programs'),
+            course_reset::RESETTYPE_STANDARD => new \lang_string('resettype_standard', 'enrol_programs'),
+            course_reset::RESETTYPE_FULL => new \lang_string('resettype_full', 'enrol_programs'),
         ];
         return $result;
     }

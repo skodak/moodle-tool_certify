@@ -64,7 +64,7 @@ Feature: Certifications behat generator tests
     And I should see "Certification completion date" in the "Valid from:" definition list item
     And I should see "Never" in the "Window closing:" definition list item
     And I should see "Never" in the "Expiration:" definition list item
-    And I should see "Forced de-allocation and unenrolments" in the "Certification program reset:" definition list item
+    And I should see "Standard course purge" in the "Certification program reset:" definition list item
     And I should see "No" in the "Re-certify automatically:" definition list item
     And I click on "Visibility settings" "link" in the "#region-main" "css_element"
     And I should see "No" in the "Public:" definition list item
@@ -88,7 +88,7 @@ Feature: Certifications behat generator tests
     And I should see "Certification completion date" in the "Valid from:" definition list item
     And I should see "Never" in the "Window closing:" definition list item
     And I should see "Never" in the "Expiration:" definition list item
-    And I should see "Forced de-allocation and unenrolments" in the "Certification program reset:" definition list item
+    And I should see "Standard course purge" in the "Certification program reset:" definition list item
     And I should see "No" in the "Re-certify automatically:" definition list item
     And I click on "Visibility settings" "link" in the "#region-main" "css_element"
     And I should see "Yes" in the "Public:" definition list item
