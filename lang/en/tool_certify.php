@@ -63,6 +63,9 @@ $string['certify:edit'] = 'Update certifications';
 $string['certify:view'] = 'View certifications';
 $string['certify:viewcatalogue'] = 'Access certifications catalogue';
 $string['cohorts'] = 'Visible to cohorts';
+$string['cohorts_help'] = 'Non-public certifications can be made visible to specified cohort members.
+
+Visibility status does not affect already assigned certifications.';
 $string['delayafter'] = '{$a->delay} after {$a->after}';
 $string['delaybefore'] = '{$a->delay} before {$a->before}';
 $string['deleteassignment'] = 'Delete assignment';
@@ -161,6 +164,9 @@ $string['privacy:metadata:table:tool_certify_usr_snapshots'] = 'User certificati
 $string['program1'] = 'Certification program';
 $string['program2'] = 'Re-certification program';
 $string['public'] = 'Public';
+$string['public_help'] = 'Public certifications are visible to all users.
+
+Visibility status does not affect already assigned certifications.';
 $string['purchaseaccess'] = 'Purchase access';
 $string['recertification'] = 'Re-certification';
 $string['recertifications'] = 'Re-certifications';
